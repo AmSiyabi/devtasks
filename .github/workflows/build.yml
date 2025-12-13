@@ -3,13 +3,14 @@ name: Build/Release
 on:
   push:
     tags:
-      - 'v*' # Trigger only when you push a tag starting with v (e.g. v1.1.0)
+      - 'v*' # Trigger on tags like v1.1.0, v1.1.1, etc.
 
 jobs:
   release:
     runs-on: ${{ matrix.os }}
 
     strategy:
+      fail-fast: false # <--- CRITICAL FIX: If Linux fails, Windows/Mac will keep going!
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
 
@@ -17,7 +18,7 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v4
 
-      - name: Install Node.js, NPM and Yarn
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -26,20 +27,17 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      # Linux-specific setup for snap/appimage if needed (usually fine defaults)
-      - name: Install Linux dependencies
+      # --- LINUX SPECIFIC FIXES ---
+      - name: Install Linux libraries
         if: matrix.os == 'ubuntu-latest'
         run: |
           sudo apt-get update
-          sudo apt-get install -y libicns-utils graphicsmagick
+          sudo apt-get install -y icnsutils graphicsmagick
 
-      # The Magic Build Command
+      # --- BUILD COMMAND ---
+      # We run the build script directly. 
+      # Electron Builder will detect the GITHUB_TOKEN and upload automatically.
       - name: Build & Release
-        uses: samuelmeuli/action-electron-builder@v1
-        with:
-          # GitHub token, automatically provided to the action
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
-          # If the commit is tagged with a version (e.g. "v1.0.0"),
-          # release the app after building
-          release: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run dist
