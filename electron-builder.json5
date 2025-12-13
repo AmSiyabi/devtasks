@@ -1,0 +1,39 @@
+{
+  "appId": "com.yourname.devtasks",
+  "productName": "DevTasks",
+  "directories": {
+    "output": "release",
+    "buildResources": "build"
+  },
+  "files": [
+    "dist/**/*",        // The React UI
+    "electron/**/*",    // The Main Process code
+    "package.json"
+  ],
+  "asar": true,
+  "asarUnpack": [
+    "**/*.node",        // Unpack native modules (sqlite) so they can run
+    "**/better-sqlite3"
+  ],
+  "win": {
+    "target": "nsis",
+    "icon": "build/icon.png"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "shortcutName": "DevTasks"
+  },
+  "mac": {
+    "target": "dmg",
+    "icon": "build/icon.png",
+    "category": "public.app-category.productivity"
+    // Note: To sign for Mac App Store/Gatekeeper, you need an Apple Developer ID. 
+    // Without it, users just right-click -> Open to bypass the warning.
+  },
+  "linux": {
+    "target": ["AppImage", "deb"],
+    "icon": "build/icon.png",
+    "category": "Development"
+  }
+}
