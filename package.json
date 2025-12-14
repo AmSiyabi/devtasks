@@ -1,7 +1,7 @@
 {
   "name": "nodepad",
   "productName": "Nodepad",
-  "version": "1.1.4",
+  "version": "1.1.6",
   "description": "Local-first Developer Task Manager",
   "author": "Your Name <your@email.com>",
   "main": "electron/main.js",
