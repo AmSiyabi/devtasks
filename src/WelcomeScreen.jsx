@@ -30,7 +30,7 @@ export default function WelcomeScreen({ onComplete }) {
           <span className="text-3xl">⚡</span>
         </div>
 
-        <h1 className="text-3xl font-bold text-[var(--text-primary)] mb-3">Welcome to DevTasks</h1>
+        <h1 className="text-3xl font-bold text-[var(--text-primary)] mb-3">Welcome to Nodepad</h1>
         <p className="text-lg text-[var(--text-secondary)] mb-10 max-w-md mx-auto">
           A local-first, privacy-focused task manager built for developers.
         </p>

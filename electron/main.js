@@ -12,7 +12,7 @@ function createWindow() {
     width: 1200,
     height: 800,
     backgroundColor: '#1e1e1e',
-    title: 'DevTasks',
+    title: 'Nodepad',
     icon: path.join(__dirname, '../build/icon.png'), // Ensure icon loads in dev
     webPreferences: {
       nodeIntegration: false,

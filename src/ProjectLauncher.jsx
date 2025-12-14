@@ -34,7 +34,7 @@ export default function ProjectLauncher({ onProjectSelect }) {
         <div className="space-y-6">
           <div className="mb-8">
             <h1 className="text-3xl font-light text-white mb-2 flex items-center gap-3">
-              <Terminal size={32} className="text-blue-500"/> DevTasks
+              <Terminal size={32} className="text-blue-500"/> Nodepad
             </h1>
             <p className="text-gray-500 text-lg">Project-based task management</p>
           </div>

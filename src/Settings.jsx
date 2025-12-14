@@ -180,7 +180,7 @@ export default function Settings({ onClose, theme, setTheme, onOpenShortcuts }) 
               </a>
             </div>
             <div className="mt-6 text-center">
-               <p className="text-xs text-[var(--text-secondary)]">DevTasks v1.0.0 • Built for Developers</p>
+               <p className="text-xs text-[var(--text-secondary)]">Nodepad v1.1.4 • Built for Developers</p>
             </div>
           </section>
 

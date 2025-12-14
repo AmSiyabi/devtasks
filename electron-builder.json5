@@ -1,6 +1,6 @@
 {
-  "appId": "com.yourname.devtasks",
-  "productName": "DevTasks",
+  "appId": "com.yourname.nodepad",
+  "productName": "Nodepad",
   "directories": {
     "output": "release",
     "buildResources": "build"
@@ -22,7 +22,7 @@
   "nsis": {
     "oneClick": false,
     "allowToChangeInstallationDirectory": true,
-    "shortcutName": "DevTasks"
+    "shortcutName": "Nodepad"
   },
   "mac": {
     "target": "dmg",
